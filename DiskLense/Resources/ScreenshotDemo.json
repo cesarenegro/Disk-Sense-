@@ -1,0 +1,196 @@
+{
+    "appStats": {
+        "totalCleaned": 9123456789,
+        "lastScanDate": "2025-01-12T10:15:00Z",
+        "lastCleanDate": "2025-01-11T18:30:00Z",
+        "systemHealthScore": 94
+    },
+    "junkCategories": [
+        {
+            "key": "user_cache",
+            "name": "User Caches",
+            "description": "Application caches that can be safely regenerated",
+            "size": 3820000000,
+            "isSelected": true,
+            "items": [
+                {
+                    "name": "Safari Cache",
+                    "path": "~/Library/Caches/com.apple.Safari",
+                    "size": 1080000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                },
+                {
+                    "name": "Chrome Cache",
+                    "path": "~/Library/Caches/Google/Chrome",
+                    "size": 1460000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                },
+                {
+                    "name": "System Caches",
+                    "path": "~/Library/Caches",
+                    "size": 1280000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                }
+            ]
+        },
+        {
+            "key": "system_logs",
+            "name": "System Logs",
+            "description": "Log files from macOS and applications",
+            "size": 1640000000,
+            "isSelected": true,
+            "items": [
+                {
+                    "name": "Diagnostic Reports",
+                    "path": "~/Library/Logs/DiagnosticReports",
+                    "size": 720000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                },
+                {
+                    "name": "User Logs",
+                    "path": "~/Library/Logs",
+                    "size": 920000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                }
+            ]
+        },
+        {
+            "key": "xcode",
+            "name": "Xcode Junk",
+            "description": "Build data, simulators, and caches from Xcode",
+            "size": 2480000000,
+            "isSelected": false,
+            "items": [
+                {
+                    "name": "DerivedData",
+                    "path": "~/Library/Developer/Xcode/DerivedData",
+                    "size": 1720000000,
+                    "isSelected": false,
+                    "isRecommended": false
+                },
+                {
+                    "name": "CoreSimulator",
+                    "path": "~/Library/Developer/CoreSimulator/Devices",
+                    "size": 760000000,
+                    "isSelected": false,
+                    "isRecommended": false
+                }
+            ]
+        },
+        {
+            "key": "browser",
+            "name": "Browser Cache",
+            "description": "Temporary browser data for faster page loading",
+            "size": 1160000000,
+            "isSelected": true,
+            "items": [
+                {
+                    "name": "Firefox Cache",
+                    "path": "~/Library/Caches/Firefox",
+                    "size": 520000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                },
+                {
+                    "name": "Edge Cache",
+                    "path": "~/Library/Caches/com.microsoft.edgemac",
+                    "size": 640000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                }
+            ]
+        },
+        {
+            "key": "temp",
+            "name": "Temporary Files",
+            "description": "System and application temporary files",
+            "size": 840000000,
+            "isSelected": true,
+            "items": [
+                {
+                    "name": "Tmp",
+                    "path": "/tmp",
+                    "size": 540000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                },
+                {
+                    "name": "User Tmp",
+                    "path": "~/.Trash",
+                    "size": 300000000,
+                    "isSelected": true,
+                    "isRecommended": true
+                }
+            ]
+        }
+    ],
+    "actionList": {
+        "items": [
+            {
+                "title": "Old DMG Installer",
+                "path": "~/Downloads/FinalCutPro_10.6.5.dmg",
+                "size": 1620000000,
+                "source": "Large Files"
+            },
+            {
+                "title": "Duplicate Screenshot",
+                "path": "~/Desktop/Screenshot 2025-01-01 at 09.12.45.png",
+                "size": 4200000,
+                "source": "Duplicates"
+            },
+            {
+                "title": "Unused Cache Folder",
+                "path": "~/Library/Caches/com.spotify.client",
+                "size": 760000000,
+                "source": "Smart Clean"
+            },
+            {
+                "title": "Old ZIP Archive",
+                "path": "~/Downloads/DesignAssets_Archive.zip",
+                "size": 540000000,
+                "source": "Downloads"
+            }
+        ],
+        "logs": [
+            {
+                "date": "2025-01-09T08:45:00Z",
+                "items": [
+                    {
+                        "title": "iMovie Cache",
+                        "path": "~/Library/Caches/com.apple.iMovie",
+                        "size": 840000000,
+                        "source": "Smart Clean"
+                    },
+                    {
+                        "title": "Old Xcode Archive",
+                        "path": "~/Library/Developer/Xcode/Archives/2024-10-10.xcarchive",
+                        "size": 1240000000,
+                        "source": "Large Files"
+                    }
+                ]
+            },
+            {
+                "date": "2025-01-05T17:10:00Z",
+                "items": [
+                    {
+                        "title": "Duplicate Photo",
+                        "path": "~/Pictures/Trip/IMG_2841(1).jpg",
+                        "size": 6200000,
+                        "source": "Duplicates"
+                    },
+                    {
+                        "title": "Old Project Build",
+                        "path": "~/Projects/App/.build",
+                        "size": 460000000,
+                        "source": "Project Junk"
+                    }
+                ]
+            }
+        ]
+    }
+}

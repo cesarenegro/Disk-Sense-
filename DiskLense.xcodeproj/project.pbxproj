@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		181113152F3CB31300B2DAC2 /* DiskLense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiskLense.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		181113172F3CB31300B2DAC2 /* DiskLense */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DiskLense;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		181113122F3CB31300B2DAC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1811130C2F3CB31300B2DAC2 = {
+			isa = PBXGroup;
+			children = (
+				181113172F3CB31300B2DAC2 /* DiskLense */,
+				181113162F3CB31300B2DAC2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		181113162F3CB31300B2DAC2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				181113152F3CB31300B2DAC2 /* DiskLense.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		181113142F3CB31300B2DAC2 /* DiskLense */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 181113212F3CB31700B2DAC2 /* Build configuration list for PBXNativeTarget "DiskLense" */;
+			buildPhases = (
+				181113112F3CB31300B2DAC2 /* Sources */,
+				181113122F3CB31300B2DAC2 /* Frameworks */,
+				181113132F3CB31300B2DAC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				181113172F3CB31300B2DAC2 /* DiskLense */,
+			);
+			name = DiskLense;
+			packageProductDependencies = (
+			);
+			productName = DiskLense;
+			productReference = 181113152F3CB31300B2DAC2 /* DiskLense.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1811130D2F3CB31300B2DAC2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					181113142F3CB31300B2DAC2 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 181113102F3CB31300B2DAC2 /* Build configuration list for PBXProject "DiskLense" */;
+			compatibilityVersion = "Xcode 16.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1811130C2F3CB31300B2DAC2;
+			productRefGroup = 181113162F3CB31300B2DAC2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				181113142F3CB31300B2DAC2 /* DiskLense */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		181113132F3CB31300B2DAC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		181113112F3CB31300B2DAC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1811131F2F3CB31700B2DAC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		181113202F3CB31700B2DAC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B73557AA1FDB49B584BA5301 /* Release-Screenshot */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release-Screenshot;
+		};
+
+		181113222F3CB31700B2DAC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DiskLense/DiskLense.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FUSE_BUILD_SCRIPT_PHASES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DiskLense;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Swift Cleaner needs access to manage login items and automate system tasks.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 4;
+				PRODUCT_BUNDLE_IDENTIFIER = "Arkitecna.Swift-Cleaner.v4";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		181113232F3CB31700B2DAC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DiskLense/DiskLense.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FUSE_BUILD_SCRIPT_PHASES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DiskLense;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Swift Cleaner needs access to manage login items and automate system tasks.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 4;
+				PRODUCT_BUNDLE_IDENTIFIER = "Arkitecna.Swift-Cleaner.v4";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8FCFBA5C9846429BAD0D22DF /* Release-Screenshot */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DiskLense/DiskLense.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ZVGX4HFZC3;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FUSE_BUILD_SCRIPT_PHASES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = DiskLense;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Swift Cleaner needs access to manage login items and automate system tasks.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 4;
+				OTHER_SWIFT_FLAGS = "-D RELEASE_SCREENSHOT";
+				PRODUCT_BUNDLE_IDENTIFIER = "Arkitecna.Swift-Cleaner.v4";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release-Screenshot;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		181113102F3CB31300B2DAC2 /* Build configuration list for PBXProject "DiskLense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1811131F2F3CB31700B2DAC2 /* Debug */,
+				181113202F3CB31700B2DAC2 /* Release */,
+				B73557AA1FDB49B584BA5301 /* Release-Screenshot */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		181113212F3CB31700B2DAC2 /* Build configuration list for PBXNativeTarget "DiskLense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				181113222F3CB31700B2DAC2 /* Debug */,
+				181113232F3CB31700B2DAC2 /* Release */,
+				8FCFBA5C9846429BAD0D22DF /* Release-Screenshot */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 1811130D2F3CB31300B2DAC2 /* Project object */;
+}
