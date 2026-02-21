@@ -21,12 +21,13 @@ struct ProjectJunkDetectorView: View {
                 controls
 
                 if model.isScanning {
-                    ProgressView(value: model.progress)
-                        .frame(width: 320)
-                        .tint(.white)
-                    Text(model.statusText)
-                        .font(.caption)
-                        .foregroundColor(.white.opacity(0.75))
+                    CustomProgressWheelView(
+                        progress: model.progress,
+                        title: "Scanning…",
+                        subtitle: model.statusText,
+                        size: 200
+                    )
+                    .frame(width: 240, height: 240)
                 }
 
                 resultsHeader

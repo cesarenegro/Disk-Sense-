@@ -1,10 +1,10 @@
 import SwiftUI
+import AppKit
 
 struct CustomProgressWheelView: View {
     let progress: Double
     let title: String
     let subtitle: String
-    let color: Color
     let size: CGFloat
     let lineWidth: CGFloat
 
@@ -12,14 +12,12 @@ struct CustomProgressWheelView: View {
         progress: Double,
         title: String,
         subtitle: String,
-        color: Color,
         size: CGFloat = 120,
-        lineWidth: CGFloat = 10
+        lineWidth: CGFloat = ProgressArcView.defaultLineWidth
     ) {
         self.progress = progress
         self.title = title
         self.subtitle = subtitle
-        self.color = color
         self.size = size
         self.lineWidth = lineWidth
     }
@@ -27,21 +25,12 @@ struct CustomProgressWheelView: View {
     var body: some View {
         VStack(spacing: 16) {
             ZStack {
-                // Background circle
-                Circle()
-                    .stroke(color.opacity(0.2), lineWidth: lineWidth)
-
                 // Progress arc
-                Circle()
-                    .trim(from: 0, to: progress)
-                    .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                    .animation(.easeInOut(duration: 0.5), value: progress)
+                ProgressArcView(progress: progress, lineWidth: lineWidth)
 
                 // Percentage text
-                Text("\(Int(progress * 100))%")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundColor(color)
+                Text(percentAttributedString)
+                    .font(.system(size: 36, weight: .bold))
             }
             .frame(width: size, height: size)
 
@@ -60,6 +49,23 @@ struct CustomProgressWheelView: View {
     }
 }
 
+private extension CustomProgressWheelView {
+    var percentAttributedString: AttributedString {
+        let borderColor = NSColor(named: "Border") ?? .white
+        let strokeColor = NSColor(named: "Text1") ?? .black
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: borderColor,
+            .strokeColor: strokeColor,
+            .strokeWidth: -1
+        ]
+        let nsAttributed = NSAttributedString(
+            string: "\(Int(progress * 100))%",
+            attributes: attributes
+        )
+        return AttributedString(nsAttributed)
+    }
+}
+
 // MARK: - Preview
 struct CustomProgressWheelView_Previews: PreviewProvider {
     static var previews: some View {
@@ -68,9 +74,8 @@ struct CustomProgressWheelView_Previews: PreviewProvider {
                 progress: 0.65,
                 title: "Scanning...",
                 subtitle: "2.4 GB found",
-                color: .blue,
                 size: 200,
-                lineWidth: 16
+                lineWidth: 24
             )
             .frame(width: 240, height: 240)
             .padding()
@@ -80,9 +85,8 @@ struct CustomProgressWheelView_Previews: PreviewProvider {
                 progress: 1.0,
                 title: "Complete!",
                 subtitle: "Scan finished",
-                color: .green,
                 size: 160,
-                lineWidth: 12
+                lineWidth: 24
             )
             .frame(width: 200, height: 200)
             .padding()
@@ -92,9 +96,8 @@ struct CustomProgressWheelView_Previews: PreviewProvider {
                 progress: 0.25,
                 title: "Cleaning...",
                 subtitle: "Removing junk files",
-                color: .orange,
                 size: 160,
-                lineWidth: 12
+                lineWidth: 24
             )
             .frame(width: 200, height: 200)
             .padding()

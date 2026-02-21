@@ -94,7 +94,6 @@ private extension FlashCleanView {
             progress: analyzer.progress,
             title: "Scanning Junk \(analyzer.formatted(analyzer.total))",
             subtitle: analyzer.currentPath,
-            color: .blue,
             size: 200,
             lineWidth: 26
         )

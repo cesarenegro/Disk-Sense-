@@ -45,12 +45,17 @@ final class JunkAnalyzer: ObservableObject {
         case idle, scanning, summary, details
     }
 
-    @Published var categories: [JunkCategory] = []
+    @Published var categories: [JunkCategory] = [] {
+        didSet {
+            recomputeSelectionTotals()
+        }
+    }
     @Published var total: Int64 = 0
     @Published var progress: Double = 0
     @Published var currentPath: String = ""
     @Published var state: ScreenState = .idle
     @Published var selectedCategoryID: UUID?
+    @Published private(set) var selectedBytes: Int64 = 0
     @Published var smartSelectedBytes: Int64 = 0
 
     enum SortMode: String, CaseIterable {
@@ -58,10 +63,6 @@ final class JunkAnalyzer: ObservableObject {
         case nameAsc = "Sort by Name"
     }
     @Published var sortMode: SortMode = .sizeDesc
-
-    var selectedBytes: Int64 {
-        categories.reduce(0) { $0 + $1.selectedSize }
-    }
 
     func formatted(_ size: Int64) -> String {
         ByteCountFormatter.string(fromByteCount: size, countStyle: .file)
@@ -89,7 +90,7 @@ final class JunkAnalyzer: ObservableObject {
             categories[c].isSelected = false
             for i in categories[c].items.indices { categories[c].items[i].isSelected = false }
         }
-        recomputeSmartSelectedBytes()
+        recomputeSelectionTotals()
     }
 
     func applySmartSelection() {
@@ -97,26 +98,25 @@ final class JunkAnalyzer: ObservableObject {
             for i in categories[c].items.indices {
                 categories[c].items[i].isSelected = categories[c].items[i].isRecommended
             }
-            categories[c].isSelected = categories[c].items.allSatisfy { $0.isSelected }
+            categories[c].isSelected = categories[c].items.contains { $0.isSelected }
         }
-        recomputeSmartSelectedBytes()
+        recomputeSelectionTotals()
     }
 
     func toggleCategory(_ id: UUID, to newValue: Bool) {
         guard let idx = categories.firstIndex(where: { $0.id == id }) else { return }
         categories[idx].isSelected = newValue
         for j in categories[idx].items.indices { categories[idx].items[j].isSelected = newValue }
-        recomputeSmartSelectedBytes()
+        recomputeSelectionTotals()
     }
 
     func toggleItem(categoryID: UUID, itemID: UUID, to newValue: Bool) {
         guard let c = categories.firstIndex(where: { $0.id == categoryID }) else { return }
         guard let i = categories[c].items.firstIndex(where: { $0.id == itemID }) else { return }
         categories[c].items[i].isSelected = newValue
-        let all = categories[c].items.allSatisfy { $0.isSelected }
-        let none = categories[c].items.allSatisfy { !$0.isSelected }
-        categories[c].isSelected = all ? true : (none ? false : true)
-        recomputeSmartSelectedBytes()
+        let anySelected = categories[c].items.contains { $0.isSelected }
+        categories[c].isSelected = anySelected
+        recomputeSelectionTotals()
     }
 
     // MARK: - REAL SCAN
@@ -224,13 +224,13 @@ final class JunkAnalyzer: ObservableObject {
 
             if !items.isEmpty {
                 let catSize = items.reduce(0) { $0 + $1.size }
-                let allSelected = items.allSatisfy { $0.isSelected }
+                let anySelected = items.contains { $0.isSelected }
                 built.append(JunkCategory(
                     key: target.0,
                     name: target.1,
                     description: target.2,
                     size: catSize,
-                    isSelected: allSelected,
+                    isSelected: anySelected,
                     items: items
                 ))
             } else {
@@ -248,7 +248,7 @@ final class JunkAnalyzer: ObservableObject {
         categories = built
         total = built.reduce(0) { $0 + $1.size }
         selectedCategoryID = categories.first?.id
-        recomputeSmartSelectedBytes()
+        recomputeSelectionTotals()
 
         state = .summary
         progress = 1
@@ -257,8 +257,10 @@ final class JunkAnalyzer: ObservableObject {
 
     // MARK: - Helpers
 
-    private func recomputeSmartSelectedBytes() {
-        smartSelectedBytes = selectedBytes
+    private func recomputeSelectionTotals() {
+        let totalSelected = categories.reduce(0) { $0 + $1.selectedSize }
+        selectedBytes = totalSelected
+        smartSelectedBytes = totalSelected
     }
 
     /// Calculate real directory size (runs off main thread)
@@ -374,7 +376,7 @@ extension JunkAnalyzer {
                 name: category.name,
                 description: category.description,
                 size: category.size,
-                isSelected: category.isSelected || allSelected,
+                isSelected: category.isSelected || allSelected || items.contains { $0.isSelected },
                 items: items
             )
         }
@@ -382,7 +384,7 @@ extension JunkAnalyzer {
         categories = mapped
         total = mapped.reduce(0) { $0 + $1.size }
         selectedCategoryID = categories.first?.id
-        recomputeSmartSelectedBytes()
+        recomputeSelectionTotals()
         state = .summary
         progress = 1
         currentPath = ""

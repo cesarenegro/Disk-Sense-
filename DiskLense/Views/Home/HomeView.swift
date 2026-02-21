@@ -21,14 +21,16 @@ struct HomeView: View {
                 hero
 
                 VStack(spacing: 10) {
-                    Text("MacTidy - make your Mac like new")
+                    Text("DiskLense - See what fills your Mac. Decide what stays")
                         .font(.system(size: 40, weight: .bold))
                         .foregroundColor(.white)
                         .shadow(color: Color.black.opacity(0.15), radius: 10, x: 0, y: 6)
+                        .multilineTextAlignment(.center)
 
                     Text("Scan your Mac and safely remove unnecessary files")
                         .font(.system(size: 18, weight: .medium))
                         .foregroundColor(.white.opacity(0.75))
+                        .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal, 24)
 

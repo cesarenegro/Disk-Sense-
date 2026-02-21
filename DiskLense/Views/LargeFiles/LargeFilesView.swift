@@ -99,14 +99,13 @@ private extension LargeFilesView {
     @ViewBuilder
     var content: some View {
         if finder.isLoading {
-            VStack(spacing: 14) {
-                ProgressView(value: finder.progress)
-                    .frame(width: 320)
-
-                Text("Scanning… \(Int(finder.progress * 100))%")
-                    .font(.caption)
-                    .foregroundColor(.white.opacity(0.75))
-            }
+            CustomProgressWheelView(
+                progress: finder.progress,
+                title: "Scanning…",
+                subtitle: "Searching user folders",
+                size: 200
+            )
+            .frame(width: 240, height: 240)
         } else if filteredFiles.isEmpty {
             CustomEmptyStateView(
                 title: "No Large Files",
@@ -190,17 +189,17 @@ private struct LargeFilesFooterButton: View {
             .font(.system(size: 15, weight: .semibold))
             .foregroundColor(.white)
             .padding(.horizontal, 20)
-            .padding(.vertical, 10)
+            .padding(.vertical, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(isEnabled ? fill : Color.white.opacity(0.08))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .stroke(Color.white.opacity(isEnabled ? 0.22 : 0.12), lineWidth: 1)
+            )
         }
-        .background(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(fill)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .stroke(Color.white.opacity(0.12), lineWidth: 1)
-        )
-        .opacity(isEnabled ? 1 : 0.45)
+        .buttonStyle(.plain)
         .disabled(!isEnabled)
     }
 }
@@ -240,4 +239,3 @@ private struct LargeFileRow: View {
         .cornerRadius(12)
     }
 }
-

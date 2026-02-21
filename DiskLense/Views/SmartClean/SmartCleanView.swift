@@ -104,9 +104,7 @@ private extension SmartCleanView {
             progress: analyzer.progress,
             title: "Scanning…",
             subtitle: analyzer.currentPath,
-            color: .blue,
-            size: 200,
-            lineWidth: 18
+            size: 200
         )
         .frame(width: 240, height: 240)
         .padding(.top, 10)
@@ -256,6 +254,8 @@ private extension SmartCleanView {
                     .foregroundColor(.white)
             }
 
+            selectionBreakdown
+
             HStack {
                 Text("Total Found")
                     .font(.caption)
@@ -275,6 +275,28 @@ private extension SmartCleanView {
                 .stroke(Color.white.opacity(0.08), lineWidth: 1)
         )
         .cornerRadius(12)
+    }
+
+    var selectionBreakdown: some View {
+        VStack(spacing: 6) {
+            ForEach(analyzer.sortedCategories()) { category in
+                let selectedSize = category.selectedSize
+                if selectedSize > 0 {
+                    HStack {
+                        Text(category.name)
+                            .font(.caption)
+                            .foregroundColor(.white.opacity(0.7))
+
+                        Spacer()
+
+                        Text(analyzer.formattedGB(selectedSize))
+                            .font(.system(.caption, design: .monospaced))
+                            .foregroundColor(.white.opacity(0.75))
+                    }
+                }
+            }
+        }
+        .padding(.top, 4)
     }
 
     var detailsActions: some View {
